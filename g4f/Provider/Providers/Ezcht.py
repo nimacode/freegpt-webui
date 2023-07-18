@@ -3,7 +3,7 @@ import os
 import json
 from ...typing import sha256, Dict, get_type_hints
 
-url = 'https://gpt4.ezchat.top'
+url = 'https://api.openai.com'
 model = ['gpt-3.5-turbo', 'gpt-3.5-turbo-16k', 'gpt-3.5-turbo-16k-0613', 'gpt-3.5-turbo-0613']
 supports_stream = True
 needs_auth = False
@@ -11,6 +11,7 @@ needs_auth = False
 def _create_completion(model: str, messages: list, stream: bool, temperature: float = 0.7, **kwargs):
     headers = {
         'Content-Type': 'application/json',
+        "Authorization" : "Bearer " + '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'
     }
     data = {
         'model': model,
